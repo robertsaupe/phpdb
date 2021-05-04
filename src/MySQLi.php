@@ -27,14 +27,13 @@ abstract class MySQLi {
 		$this->table = $prefix . $table;
 		$this->conn = new phpmysqli($server, $user, $password, $database);
 		if ($this->conn->connect_errno) $this->error = "Failed to connect to MySQL: " . $this->conn->connect_error;
-
 	}
 
-	public function GetError() {
+	public function getError() {
 		return $this->error;
 	}
 
-	public function GetTableName() {
+	public function getTableName() {
 		return $this->table;
 	}
 
@@ -51,7 +50,7 @@ abstract class MySQLi {
     }
     
 	protected function result($where) {
-		return $this->conn->query("select*from $this->table where $where");
+		return $this->conn->query("select * from $this->table where $where");
     }
     
 	protected function update($update) {
